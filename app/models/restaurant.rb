@@ -1,7 +1,7 @@
 class Restaurant < ActiveRecord::Base
-  has_many :reservations, :tables, #:diners
+    has_many :reservations
 
-        def index
+ #    def index
           		
-	end
+#	end
 end

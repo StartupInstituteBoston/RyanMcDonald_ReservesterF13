@@ -18,6 +18,8 @@ ruby '2.0.0'
 group :development, :test do
   gem 'rspec-rails'
   gem 'devise'
+  gem 'timecop' # Functionality for testing things with time stamps
+  gem 'simplecov' # Adds Coverage folder to your main directory and opens html file with list of what has been tested and what still needs to be tested
 end
 
 group :test do

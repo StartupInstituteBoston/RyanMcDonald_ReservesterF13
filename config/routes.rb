@@ -54,5 +54,7 @@ Reservster::Application.routes.draw do
   #     resources :products
   #   end
 
-	resources :restaurants, only: [ :index ]
+	resources :restaurants do
+    resources :reservations, except: [ :index ]
+  end
 end

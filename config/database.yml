@@ -9,7 +9,7 @@ development:
   encoding: utf8
   database: reservster_development
   pool: 5
-  username: USER_NAME
+  username: ryanmcdonald 
   password:
   host: localhost
 
@@ -21,7 +21,7 @@ test:
   encoding: utf8
   database: reservster_test
   pool: 5
-  username: USER_NAME
+  username: ryanmcdonald
   password:
   host: localhost
 

@@ -1,0 +1,14 @@
+<%= link_to "Restaurant", restaurants_path %>
+
+<body>
+<h1>Reservations for <%= @restaurant.name %></h1>
+</body>
+
+<h2><%= @reservation.name %></h2>
+
+
+<% @reservation.each do |reservation| %>
+	<div><%= reservation.name %></div>
+<!--  <div><%= link_to reservation.time, [@restaurant, reservation] %>
+  </div> -->
+<% end %>

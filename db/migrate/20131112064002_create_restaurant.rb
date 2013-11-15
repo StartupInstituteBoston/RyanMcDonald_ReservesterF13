@@ -1,7 +1,7 @@
 class CreateRestaurant < ActiveRecord::Migration
   def change
     create_table :restaurants do |t|
-      t.sring :name
+      t.string :name
       t.text :description
 
       t.string :street

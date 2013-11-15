@@ -1,3 +1,14 @@
-<% @restaurant %>
+<head>
+<title>Restaurants</title>
+</head>
 
+<body>
+<h1>Restaurants</h1>
+</body>
+
+<% @restaurants.each do |restaurant| %>
+    <div><%= link_to restaurant.name, restaurant %>
+ 
+    </div>
+<% end %>
 
