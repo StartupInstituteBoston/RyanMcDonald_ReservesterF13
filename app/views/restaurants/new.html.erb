@@ -1,0 +1,31 @@
+<body>
+<h1>Add a New Restaurants</h1>
+</body>
+
+<%= form_for(@restaurant) do |form|  %>
+    <div>
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+    </div>
+    <div>
+        <%= form.label :description %>
+        <%= form.text_field :description %>
+    </div>
+    <div>
+        <%= form.label :street %>
+        <%= form.text_field :street %>
+    </div>
+    <div>
+        <%= form.label :city %>
+        <%= form.text_field :city %>
+    </div>
+    <div>
+        <%= form.label :state %>
+        <%= form.text_field :state %>
+    </div>
+    <div>
+        <%= form.label :zipcode %>
+        <%= form.text_field :zipcode %>
+    </div>
+    <%= form.submit "Create Restaurant" %>
+<% end %>

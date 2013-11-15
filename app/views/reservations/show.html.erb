@@ -1,14 +1,12 @@
-<%= link_to "Restaurant", restaurants_path %>
+<%= link_to "Restaurant", restaurant_path %>
 
 <body>
 <h1>Reservations for <%= @restaurant.name %></h1>
 </body>
 
-<h2><%= @reservation.name %></h2>
-
-
+	
 <% @reservation.each do |reservation| %>
-	<div><%= reservation.name %></div>
-<!--  <div><%= link_to reservation.time, [@restaurant, reservation] %>
-  </div> -->
+	<div><%= reservation.datetime %></div>
+<<div><%= link_to "Cancel Reservation?", restaurant_path, method: :delete, confirm: "Are you sure you want to delete?" %>
+  </div>
 <% end %>

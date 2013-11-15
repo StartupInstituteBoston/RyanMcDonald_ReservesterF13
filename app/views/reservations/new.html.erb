@@ -1,0 +1,17 @@
+<%= form_for(@reservation) do |form|  %>
+    <div>
+        <%= form.label :email %>
+        <%= form.email_field :email %>
+    </div>
+
+    <div>
+        <%= form.label :datetime %>
+        <%= form.datetime_field :datetime %>
+    </div>
+
+    <div>
+     <%= f.hidden_field :restaurant_id, :value => @restaurant.id %>
+	</div>
+
+    <%= form.submit "Create Reservation" %>
+<% end %>

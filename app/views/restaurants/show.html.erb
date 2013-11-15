@@ -1,8 +1,14 @@
+
 <%= link_to "All Restaurants", restaurants_path %>
 <h2><%= @restaurant.name %></h2>
+<p><%= @restaurant.street %></p>
+<p><%= @restaurant.city  %>, 
+	<%= @restaurant.state %> 
+	<%= @restaurant.zipcode %></p>
 
-
-<% @reservations.each do |reservation| %>
-  <div><%= link_to reservation.name, [@restaurant, reservation] %>
-  </div>
-<% end %>
+<p><div>
+	<%= link_to "Delete Restaurant", restaurants_path, method: :delete, confirm: "Are you sure you want to delete?" %>
+  </div></p>
+<p><div>	
+	<%= link_to "New Reservation", new_restaurant_path %>
+  </div></p>

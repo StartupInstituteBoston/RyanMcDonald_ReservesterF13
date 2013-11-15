@@ -5,7 +5,7 @@ class RestaurantsController < ApplicationController
 
     def show
         @restaurant = Restaurant.find(params[:id]) # changed this from :id to :name. "params" is the hash that is created by the "routes" file and it gets stored in our "Controller"
-        #@reservation = @restaurant.reservation
+        @reservation = Reservation.new
     end
 
     def new
@@ -13,19 +13,19 @@ class RestaurantsController < ApplicationController
     end
 
     def create
-        @restaurant = Restaurant.new(restaurant_params)
+        @restaurant = Restaurant.new(restaurants_params)
         @restaurant.save
-        redirect_to restaurants_path
+        redirect_to @restaurant
     end
 
     def edit
       @restaurant = Restaurant.find(params[:id])
       @restaurant.update_attributes(restaurant_params[:restaurant])
-      redirect_to restaurants_path(@restaurant.id)
+ #     redirect_to restaurants_path(@restaurant.id)
     end
 
     def destroy
-      @restaurant = Restaurant.find(params[:id])
+      @restaurant = Restaurant.find(restaurants_params)
       @restaurant.destroy
       redirect_to restaurants_path
     end 
