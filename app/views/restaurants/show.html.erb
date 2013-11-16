@@ -1,4 +1,6 @@
 
+<% provide(:title, @restaurant.name) %>
+
 <%= link_to "All Restaurants", restaurants_path %>
 <h2><%= @restaurant.name %></h2>
 <p><%= @restaurant.street %></p>
@@ -7,8 +9,11 @@
 	<%= @restaurant.zipcode %></p>
 
 <p><div>
-	<%= link_to "Delete Restaurant", restaurants_path, method: :delete, confirm: "Are you sure you want to delete?" %>
+	<%= @restaurant.description %>
+  </div></p>
+<p><div>
+	<%= link_to "Delete Restaurant", restaurant_path(@restaurant), method: :delete, confirm: "Are you sure you want to delete?" %>
   </div></p>
 <p><div>	
-	<%= link_to "New Reservation", new_restaurant_path %>
+	<%= link_to "New Reservation", new_reservation_path %>
   </div></p>

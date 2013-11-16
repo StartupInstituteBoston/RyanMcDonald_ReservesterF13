@@ -9,9 +9,9 @@
         <%= form.datetime_field :datetime %>
     </div>
 
-    <div>
-     <%= f.hidden_field :restaurant_id, :value => @restaurant.id %>
-	</div>
-
+ <!--   <div>
+     <%= f.hidden_field :restaurant_id, :value => @restaurant_id # need to add this index in the schema %> 
+    </div> 
+-->
     <%= form.submit "Create Reservation" %>
 <% end %>

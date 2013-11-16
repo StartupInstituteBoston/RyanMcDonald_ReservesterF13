@@ -36,13 +36,25 @@ end
  gem 'pg'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+ gem 'sass-rails', '~> 4.0.0'
+
+# Use LESS for twitter bootstrap
+gem 'less-rails'
+
+# Use therubyracer for LESS
+gem 'therubyracer'
+
+# Use Twitter Bootstrap for simple styling
+gem 'twitter-bootstrap-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
+
+# Use rmagick for image rendering
+gem 'rmagick'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

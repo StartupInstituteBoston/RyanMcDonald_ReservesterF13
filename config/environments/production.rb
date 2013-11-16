@@ -39,6 +39,9 @@ Reservster::Application.configure do
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
+  # In production, :host should be set to the actual host of your application
+  # config.action_mailer.default_url_options = { :host => 'locatoin where your app is hosted' }
+
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
 

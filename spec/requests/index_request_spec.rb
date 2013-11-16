@@ -1,7 +1,7 @@
 require 'spec_helper'
 
  describe "index request to display ordered list of restaurants" do
- 	let(:restaurants) {}
+ #	let(:restaurants) {}
    context "when there are no restaurants" do
       it 
 
