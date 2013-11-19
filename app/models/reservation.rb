@@ -1,11 +1,6 @@
 class Reservation < ActiveRecord::Base
   belongs_to :restaurant 
+  belongs_to :diner
  # has_many :tables
- # has_many :diners
-
-        def index
-          		
-	end
-
 
 end

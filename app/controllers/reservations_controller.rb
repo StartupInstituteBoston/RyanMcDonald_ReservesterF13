@@ -1,5 +1,11 @@
 class ReservationsController < ApplicationController
 
+
+  def index
+
+      @reservation = Reservation.order(:datetime) 
+  end
+
     def new
       @reservation = Reservation.new
     end
@@ -10,15 +16,15 @@ class ReservationsController < ApplicationController
     end
 
     def create
-      @reservation = Reservation.new(reservation_params)
+      @reservation = Reservation.new(reservations_params)
       @reservation.save
-      redirect_to new_restaurant_reservation_path
+      redirect_to restaurant_path(@restaurant.id)
     end
 
     def edit
       @reservation = Reservation.find(params[:id])
-      @reservation.update_attributes(reservations_params[:reservation])
-      redirect_to restaurant_reservation_path(@reservation.id)
+      @reservation.update_attributes(reservations_params)
+      redirect_to reservation_path(@reservation.id)
     end
 
     def destroy
@@ -31,6 +37,6 @@ class ReservationsController < ApplicationController
 
     private
       def reservations_params
-        params.require(:reservation).permit(:user_id, :datetime, :restaurant_id, :status)
+        params.require(:reservation).permit(:user_id, :datetime, :email, :status)
       end
 end

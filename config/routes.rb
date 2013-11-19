@@ -4,8 +4,14 @@ Reservster::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
+
+
   # You can have the root of your site routed with "root"
-   root :to => 'restaurants#index'
+   root :to => 'static#root'
+
+  resources :restaurants
+  
+  resources :reservations
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -56,8 +62,5 @@ Reservster::Application.routes.draw do
   #     resources :products
   #   end
 
-	resources :restaurants
-  
-  resources :reservations, except: [ :index ]
   
 end

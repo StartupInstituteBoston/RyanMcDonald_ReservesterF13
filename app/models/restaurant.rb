@@ -1,5 +1,7 @@
 class Restaurant < ActiveRecord::Base
-    has_many :reservations
+    belongs_to :owner
+    has_many :reservations, dependent: :destroy
+    accepts_nested_attributes_for :reservations
 
     validates :name, presence: true	# This is the what the 'restaurant_spec.rb' file is looking for in the test
     validates :street, presence: true

@@ -1,0 +1,36 @@
+<div class="page-header">
+  <h1><%= "Welcome to Reservster" %></h1>
+</div>
+
+<div>
+</div>
+<h2>Owner's:</h2>
+<div class="container">
+	<div class="row">
+		<% if owner_signed_in? %>
+		<p><div class="span4"><%= link_to "Your Restaurants", restaurants_path, class: "btn" %> </p>
+		<p><%= link_to "Owner Sign Out", destroy_owner_session_path, method: :delete, class: "btn" %> </p>
+		</div>
+	</div>
+	<% else %>
+		<p><div class="span4"><%= link_to "Owner Sign In", new_owner_session_path, class: "btn" %> </p>
+		<p><%= link_to "Owner Sign Up", new_owner_registration_path, class: "btn" %> </p>
+		</div>
+	<% end %>
+	</div>
+
+<h2>Diner's:</h2>
+
+	<div class="row">
+	<% if diner_signed_in? %>
+		<p><div class="span4"><%= link_to "Your Reservations", reservations_path, class: "btn" %> </p>
+		<p><%= link_to "Diner Sign Out", destroy_diner_session_path, method: :delete, class: "btn" %> </p>
+		</div>
+	</div>
+	<% else %>
+		<p><div class="span4"><%= link_to "Diner Sign In", new_diner_session_path, class: "btn" %> </p>
+		<p><%= link_to "Diner Sign Up", new_diner_registration_path, class: "btn" %> </p>
+		</div>
+	<% end %>
+	</div>
+</div>

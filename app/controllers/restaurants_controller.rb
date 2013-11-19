@@ -1,4 +1,8 @@
 class RestaurantsController < ApplicationController
+
+  before_filter :authenticate_owner!, :only => [:new, :create]
+  before_filter :owner_signed_in?, :only => [:edit, :update, :destroy]
+
   	def index
   		@restaurants = Restaurant.order(:name)
   	end
@@ -20,8 +24,13 @@ class RestaurantsController < ApplicationController
 
     def edit
       @restaurant = Restaurant.find(params[:id])
-      @restaurant.update_attributes(restaurant_params[:restaurant])
- #     redirect_to restaurants_path(@restaurant.id)
+
+    end
+
+    def update
+      @restaurant = Restaurant.find(params[:id])
+      @restaurant.update(restaurants_params)
+      redirect_to restaurant_path(@restaurant)
     end
 
     def destroy

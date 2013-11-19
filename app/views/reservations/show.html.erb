@@ -1,12 +1,27 @@
-<%= link_to "Restaurant", restaurant_path %>
+<%- model_class = Reservation -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<body>
-<h1>Reservations for <%= @restaurant.name %></h1>
-</body>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @reservation.user_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:status) %>:</strong></dt>
+  <dd><%= @reservation.status %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:datetime) %>:</strong></dt>
+  <dd><%= @reservation.datetime %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @reservation.email %></dd>
+</dl>
 
-	
-<% @reservation.each do |reservation| %>
-	<div><%= reservation.datetime %></div>
-<<div><%= link_to "Cancel Reservation?", restaurant_path, method: :delete, confirm: "Are you sure you want to delete?" %>
-  </div>
-<% end %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              reservations_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_reservation_path(@reservation), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              reservation_path(@reservation),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
