@@ -11,18 +11,17 @@
       <%= f.text_field :email, :class => 'text_field' %>
     </div>
   </div>
-  <div class="control-group">
-    <%= f.label :datetime, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :datetime, :class => 'text_field' %>
-    </div>
+  <div class="control-group date-picker">
+    <%= f.date_select :datetime, ignore_time: true, discard_year: true, :class => 'control-group date-picker' %>
+    <%= f.time_select :datetime, minute_step: 10, :class => 'control-group date-picker' %>   
   </div>
 
     <%= f.hidden_field :status, value: "Booked" %>
-
+ <!--    <%= f.hidden_field :restaurant_id, value: @restaurant.id %>    
+ -->
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                restaurant_path, :class => 'btn' %>
+                reservations_path, :class => 'btn' %>
   </div>
 <% end %>

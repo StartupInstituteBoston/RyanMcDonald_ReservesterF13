@@ -5,5 +5,7 @@ class AddReservationToRestaurant < ActiveRecord::Migration
 
   	add_column :reservations, :datetime, :datetime 
   	add_column :reservations, :email, :string
+
+  	add_reference :reservations, :restaurant, index: true
   end
 end

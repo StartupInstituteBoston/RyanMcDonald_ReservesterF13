@@ -16,6 +16,7 @@ gem 'carrierwave'
 ruby '2.0.0'
 
 group :development, :test do
+  gem 'byebug'
   gem 'rspec-rails'
   gem 'devise'
   gem 'timecop' # Functionality for testing things with time stamps

@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
 
   before_filter :authenticate_owner!, :only => [:new, :create]
-  before_filter :owner_signed_in?, :only => [:edit, :update, :destroy]
+  before_filter :correct_owner!, :only => [:edit, :update, :destroy]
 
   	def index
   		@restaurants = Restaurant.order(:name)
@@ -17,7 +17,7 @@ class RestaurantsController < ApplicationController
     end
 
     def create
-        @restaurant = Restaurant.new(restaurants_params)
+        @restaurant = current_owner.restaurants.build(restaurants_params)
         @restaurant.save
         redirect_to @restaurant
     end
@@ -36,12 +36,26 @@ class RestaurantsController < ApplicationController
     def destroy
       @restaurant = Restaurant.find(params[:id])
       @restaurant.destroy
-      redirect_to :action => 'index'
+      redirect_to restaurants_path
     end 
 
   private
     def restaurants_params
-      params.require(:restaurant).permit(:name, :description, :street, :city, :state, :zipcode)
+      params.require(:restaurant).permit(:name, :description, :street, :city, :state, :zipcode, :owner_id)
+    end
+
+    def correct_owner!
+      @restaurant = Restaurant.find(params[:id])
+     #  @present_owner = @owner_id
+     #  @restaurant = current_owner.restaurants.find_by(id: params[:id])
+     # byebug
+      
+      
+      if @restaurant.owner_id != current_owner.id
+#        byebug
+        redirect_to restaurants_path, alert: "Nice try...We know that aint yo Restaurant sucka" 
+      end
+# => byebug
     end
 
 end

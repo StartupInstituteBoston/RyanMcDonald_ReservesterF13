@@ -12,6 +12,7 @@ Reservster::Application.routes.draw do
   resources :restaurants
   
   resources :reservations
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

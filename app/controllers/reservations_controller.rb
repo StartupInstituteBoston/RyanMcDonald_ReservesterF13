@@ -1,8 +1,9 @@
 class ReservationsController < ApplicationController
 
-
+  before_filter :find_restaurant
+  
   def index
-
+      @restaurant = Restaurant.find(params[:id])
       @reservation = Reservation.order(:datetime) 
   end
 
@@ -37,6 +38,10 @@ class ReservationsController < ApplicationController
 
     private
       def reservations_params
-        params.require(:reservation).permit(:user_id, :datetime, :email, :status)
+        params.require(:reservation).permit(:user_id, :datetime, :email, :status, :restaurant_id)
       end
+    
+      def find_restaurant
+        @restaurant = Restaurant.find(params[:id])
+      end  
 end
