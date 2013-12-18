@@ -8,7 +8,8 @@
 <div class="container">
 	<div class="row">
 		<% if owner_signed_in? %>
-		<p><div class="span4"><%= "#{current_owner.name} is currently signed in" %></div>
+		<p><div class="span4"><%= "#{current_owner.email} is currently signed in" %></div></p>
+		<br>
 		<p><div class="span4"><%= link_to "Your Restaurants", restaurants_path, class: "btn" %> </p>
 		<p><%= link_to "Owner Sign Out", destroy_owner_session_path, method: :delete, class: "btn" %> </p>
 		</div>

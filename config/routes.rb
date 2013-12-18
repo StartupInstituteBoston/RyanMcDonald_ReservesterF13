@@ -9,10 +9,9 @@ Reservster::Application.routes.draw do
   # You can have the root of your site routed with "root"
    root :to => 'static#root'
 
-  resources :restaurants
-  
-  resources :reservations
-  
+  resources :restaurants do
+    resources :reservations
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

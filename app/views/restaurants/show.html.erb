@@ -41,9 +41,9 @@
 <div class="row">
    <div class="span12">     
     <%= render "/reservations/form" %>
-<!--   <%= link_to "Reservations", new_reservation_path, :class => 'btn'   %> 
+   <%= link_to "Reservations", restaurant_reservations_path(@restaurant), :class => 'btn' %> 
   <%= link_to "Reviews", restaurant_path, :class => 'btn'  %>
-  <%= link_to "Add a Review", restaurant_path, :class => 'btn'  %> -->
+  <%= link_to "Add a Review", restaurant_path, :class => 'btn'  %> 
   </div>
  </div>
 </div>

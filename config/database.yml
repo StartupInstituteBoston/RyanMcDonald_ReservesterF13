@@ -11,7 +11,7 @@ development:
   pool: 5
   username: ryanmcdonald 
   password:
-  host: http://0.0.0.0:3001
+  host: localhost
 
 # The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -23,7 +23,7 @@ test:
   pool: 5
   username: ryanmcdonald
   password:
-  host: http://0.0.0.0:3001
+  host: localhost
 
 production:
   adapter: postgresql

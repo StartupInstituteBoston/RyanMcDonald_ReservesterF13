@@ -1,4 +1,4 @@
-<%= form_for @reservation, :html => { :class => 'form-horizontal' } do |f| %>
+<%= form_for [@restaurant, @reservation], :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
     <%= f.label "Name", :class => 'control-label' %>
     <div class="controls">
@@ -17,11 +17,11 @@
   </div>
 
     <%= f.hidden_field :status, value: "Booked" %>
- <!--    <%= f.hidden_field :restaurant_id, value: @restaurant.id %>    
- -->
+    <%= f.hidden_field :restaurant_id, value: @restaurant.id %>    
+ 
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                reservations_path, :class => 'btn' %>
+                restaurant_path, :class => 'btn' %>
   </div>
 <% end %>
